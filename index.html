@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iintent</title>
+    <style>
+        body {
+            margin: 0;
+            background-image: url('dots.png')
+            background-repeat: repeat;
+	    background-size: 70px 70px;
+            animation: moveBackground 80s linear infinite;
+            height: 100vh; /* Full height */
+            overflow: hidden;
+	    cursor: url('default.png'), auto;
+        }
+
+        @keyframes moveBackground {
+            0% {
+                background-position: 0 100%;
+            }
+            100% {
+                background-position: 100% 0;
+            }
+        }
+    </style>
+</head>
+<body>
+	
+
+    <audio id="audioPlayer" preload="auto" loop>
+            <source src="https://github.com/s-y-n-q/iintent/raw/refs/heads/main/home.ogg" type="audio/ogg">
+        </audio>
+
+    <script>
+	alert("you have to click btw");
+        const audioPlayer = document.getElementById('audioPlayer');
+
+        // Function to play audio
+        const playAudio = () => {
+            audioPlayer.volume = 0.8; 
+            audioPlayer.play();
+        };
+
+        // Simulate a click to allow audio to play
+        window.addEventListener('click', () => {
+            audioPlayer.muted = false;
+            playAudio();
+        });
+
+        audioPlayer.addEventListener('timeupdate', () => {
+            if (audioPlayer.currentTime >= audioPlayer.duration - 0.3) {
+                audioPlayer.currentTime = 0;
+                audioPlayer.play();  // Ensure it plays without delay
+            }
+        });
+    </script>
+</body>
+</html>
