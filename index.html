@@ -9,11 +9,14 @@
             margin: 0;
             background-image: url('https://github.com/s-y-n-q/iintent/blob/main/dots.png?raw=true');
             background-repeat: repeat;
-	    background-size: 70px 70px;
+            background-size: 70px 70px;
             animation: moveBackground 80s linear infinite;
             height: 100vh; /* Full height */
             overflow: hidden;
-	    cursor: url('https://github.com/s-y-n-q/iintent/blob/main/default.png?raw=true'), auto;
+            cursor: url('https://github.com/s-y-n-q/iintent/blob/main/default.png?raw=true'), auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         @keyframes moveBackground {
@@ -24,26 +27,31 @@
                 background-position: 100% 0;
             }
         }
+
+        img {
+            position: absolute;
+            max-width: 10%;
+            max-height: 10%;
+            object-fit: contain;
+        }
     </style>
 </head>
 <body>
-	
+    <img src="https://github.com/s-y-n-q/iintent/blob/main/lain.png?raw=true" alt="lain">
 
     <audio id="audioPlayer" preload="auto" loop>
-            <source src="https://github.com/s-y-n-q/iintent/raw/refs/heads/main/home.ogg" type="audio/ogg">
-        </audio>
+        <source src="https://github.com/s-y-n-q/iintent/raw/refs/heads/main/home.ogg" type="audio/ogg">
+    </audio>
 
     <script>
-	alert("you have to click btw");
+        alert("you have to click btw");
         const audioPlayer = document.getElementById('audioPlayer');
 
-        // Function to play audio
         const playAudio = () => {
             audioPlayer.volume = 0.8; 
             audioPlayer.play();
         };
 
-        // Simulate a click to allow audio to play
         window.addEventListener('click', () => {
             audioPlayer.muted = false;
             playAudio();
